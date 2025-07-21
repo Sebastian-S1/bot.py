@@ -73,13 +73,15 @@ async def main():
     print("🤖 Bot is running...")
     await app.run_polling()
 
-import asyncio
+from telegram.ext import ApplicationBuilder
 
-if __name__ == "__main__":
-    loop = asyncio.get_event_loop()
-    try:
-        loop.run_until_complete(main())
-    except KeyboardInterrupt:
-        print("Bot stopped manually.")
-    finally:
-        loop.close()
+app = ApplicationBuilder().token(BOT_TOKEN).build()
+
+app.add_handler(CommandHandler("start", start))
+app.add_handler(CommandHandler("help", help_command))
+app.add_handler(CommandHandler("tips", tips))
+app.add_handler(CommandHandler("journal", journal))
+app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, save_dream))
+
+print("🤖 Bot is running...")
+app.run_polling()  # <-- this keeps running indefinitely
