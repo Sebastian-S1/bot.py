@@ -7,10 +7,8 @@ from telegram.ext import (
     filters,
 )
 
-import os
-
-# ✅ Get BOT_TOKEN from Render Environment Variables
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+# ✅ Your Bot Token (hardcoded)
+BOT_TOKEN = "7541116150:AAHSiV19V1NqTbPBe6hrG8gapr23aJbbWxQ"
 
 # In-memory dream storage
 dream_journal = {}
