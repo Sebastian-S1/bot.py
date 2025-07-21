@@ -3,30 +3,19 @@ print("✅ Version:", telegram.__version__)
 
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
-import logging
 
-BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
+BOT_TOKEN = "7541116150:AAHSiV19V1NqTbPBe6hrG8gapr23aJbbWxQ"  # Replace with your bot token
 
-logging.basicConfig(
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    level=logging.INFO
-)
-
-logger = logging.getLogger(__name__)
-
-# ✅ Define a command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Hello! ✅ Your bot is running successfully!")
+    await update.message.reply_text("✅ Bot is working on Render!")
 
-# ✅ Main function
 def main():
-    # Build application (replaces old Updater)
     app = ApplicationBuilder().token(BOT_TOKEN).build()
-
-    # Add command handlers
+    
+    # Add handlers
     app.add_handler(CommandHandler("start", start))
-
-    logger.info("🚀 Bot started...")
+    
+    # Start the bot
     app.run_polling()
 
 if __name__ == "__main__":
