@@ -1,12 +1,11 @@
 import telegram
 print("✅ Version:", telegram.__version__)
 
-from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-BOT_TOKEN = "YOUR_BOT_TOKEN"  # Replace with your actual token
+BOT_TOKEN = "7541116150:AAHSiV19V1NqTbPBe6hrG8gapr23aJbbWxQ"  # Replace with your actual token
 
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def start(update, context):
     await update.message.reply_text("✅ Bot is now running on Render!")
 
 def main():
