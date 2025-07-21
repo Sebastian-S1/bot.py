@@ -1,3 +1,6 @@
+import telegram
+print("✅ Version:", telegram.__version__)
+
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import logging
